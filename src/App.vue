@@ -42,6 +42,9 @@
   /*width: 100%;*/
   /*height: 100%;*/
 }
+.el-submenu .el-menu-item{
+  padding-left: 45px !important;
+}
 </style>
 <script>
 

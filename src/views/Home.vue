@@ -7,19 +7,29 @@
       <AsideView></AsideView>
     </el-aside>
     <el-main class="my-main">
-      <!--      <router-view></router-view>-->
-      Main
+      <router-view></router-view>
     </el-main>
   </div>
 </template>
 
 <script>
-import AsideView from "../components/AsideView";
 import Header from "../components/Header";
+import AsideView from "../components/AsideView";
 
 export default {
   name: "Home",
-  components: {Header, AsideView}
+  components: {AsideView, Header},
+  data() {
+    return {
+      rightCode: {   //权限
+        userRight: true, //用户权限
+        monitorRight: true,  //班长权限
+        studyMemberRight: true //学习委员权限
+
+      },
+
+    }
+  }
 }
 </script>
 
