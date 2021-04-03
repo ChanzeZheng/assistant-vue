@@ -8,6 +8,7 @@ import router from './router'
 //导入axios
 import axios from "axios";
 import VueAxios from "vue-axios";
+import store from "./store/store";
 
 //use方法相当于调用install
 Vue.use(Element)
@@ -23,6 +24,7 @@ axios.defaults.withCredentials=true
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  store,
 }).$mount('#app')
 

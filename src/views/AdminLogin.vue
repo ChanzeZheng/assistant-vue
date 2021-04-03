@@ -65,8 +65,6 @@ export default {
             var message = responseData.message
             if (code == 200) {
               alert('success:' + responseData.message)
-              // var rightCode = responseData.rightCode
-              // alert('rightCode is ' + rightCode)
               this.$router.push({
                 name: 'Home',
                 // params: {
@@ -81,9 +79,6 @@ export default {
             alert('进入error：' + error)
           })
     },
-    // setRightCode(rightCode) {
-    //   var isAdmin = rightCode.isAdmin
-    // }
   }
 }
 </script>

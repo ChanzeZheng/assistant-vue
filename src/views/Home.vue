@@ -1,8 +1,7 @@
 <template>
   <div>
     <el-header class="my-header">
-      <Header :isUser="rightCode.user" :isMonitor="rightCode.monitor" :isStudyMember="rightCode.studyMember"
-              :isAdmin="rightCode.admin"></Header>
+      <Header></Header>
     </el-header>
     <el-aside class="my-aside">
       <AsideView></AsideView>
@@ -22,12 +21,6 @@ export default {
   components: {AsideView, Header},
   data() {
     return {
-      rightCode: {   //权限
-        user: false, //用户权限
-        monitor: false,  //班长权限
-        studyMember: false, //学习委员权限
-        admin: false,     //管理员权限
-      },
       currentUser: {
         username: '',
         accountNumber: '',
@@ -73,7 +66,8 @@ export default {
             var statusCode = responseData.statusCode
             var rightCode = responseData.data
             if (statusCode == 200) {
-              this.rightCode = rightCode
+              alert('rightCode1111:'+rightCode)
+              this.$store.dispatch('addRightCode',rightCode)
             } else {
               var message = responseData.message
               alert(message);
@@ -90,6 +84,20 @@ export default {
     //   //只有获取到值才进行展示，其余只能获取到默认
     //   this.rightCode = rightCode;
     // }
+  },
+  computed: {
+    isUser() {
+      return this.$store.getters.isUser
+    },
+    isAdmin() {
+      return this.$store.getters.isAdmin
+    },
+    isMonitor() {
+      return this.$store.getters.isMonitor
+    },
+    isStudyMember() {
+      return this.$store.getters.isStudyMember
+    }
   }
 }
 </script>
