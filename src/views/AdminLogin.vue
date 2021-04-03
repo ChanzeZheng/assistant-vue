@@ -49,7 +49,6 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('校验成功！调用登陆方法');
           this.adminLogin(this.adminLoginForm.username, this.adminLoginForm.password)
           // this.test_get_method()
         } else {
@@ -64,7 +63,7 @@ export default {
             var code = responseData.statusCode
             var message = responseData.message
             if (code == 200) {
-              alert('success:' + responseData.message)
+              alert(message)
               this.$router.push({
                 name: 'Home',
                 // params: {

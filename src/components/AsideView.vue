@@ -63,6 +63,13 @@
           <el-menu-item index="PublishHomework">发布新的作业</el-menu-item>
           <el-menu-item index="ZipHomework">打包导出班级作业</el-menu-item>
         </el-submenu>
+        <el-submenu index="2-5" v-show="isAdmin">
+          <template slot="title">
+            系统管理
+          </template>
+          <el-menu-item index="GlobalClassInfo">全局班级信息管理</el-menu-item>
+
+        </el-submenu>
 
       </el-submenu>
       <el-menu-item index="SystemSetting">

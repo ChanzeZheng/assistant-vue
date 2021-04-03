@@ -10,6 +10,13 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import store from "./store/store";
 
+//导入文件工具
+import fileUtil from './utils/fileUtil';
+Vue.prototype.$fileUtil = fileUtil;
+//导入权限校验的工具
+import rightUtil from './utils/rightUtil';
+Vue.prototype.$rightUtil = rightUtil
+
 //use方法相当于调用install
 Vue.use(Element)
 Vue.use(VueAxios,axios)

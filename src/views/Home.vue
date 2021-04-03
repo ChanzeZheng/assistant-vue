@@ -65,11 +65,14 @@ export default {
             var responseData = response.data
             var statusCode = responseData.statusCode
             var rightCode = responseData.data
+            var message = responseData.message;
             if (statusCode == 200) {
-              alert('rightCode1111:'+rightCode)
               this.$store.dispatch('addRightCode',rightCode)
+            }else if (statusCode == 408) {
+              //登陆信息已失效
+              alert(message)
+              this.$router.push('/')
             } else {
-              var message = responseData.message
               alert(message);
 
             }

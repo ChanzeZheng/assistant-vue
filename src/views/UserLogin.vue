@@ -51,7 +51,6 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('校验成功！调用登陆方法');
           this.userLogin(this.loginForm.username, this.loginForm.password)
           // this.test_get_method()
         } else {

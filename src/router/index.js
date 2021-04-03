@@ -102,6 +102,12 @@ const routes = [
                 name:'系统设置',
                 component:()=>import('../views/User/SystemSetting')
             },
+            //管理员系统管理模块
+            {
+                path:'/GlobalClassInfo',
+                name:'全局班级信息',
+                component:()=>import('../views/Admin/GlobalClassInfo')
+            }
         ]
     },
     {
