@@ -7,7 +7,7 @@
           class=""
 
           router>
-        <el-submenu index="1" v-show="rightCode.userRight">
+        <el-submenu index="1" v-show="isUser">
           <template slot="title">
             <i class="el-icon-user-solid"></i>
             <span>个人信息管理</span>
@@ -26,7 +26,7 @@
           </template>
           <!-- 功能模块的子选项 -->
           <!-- 作业管理 -->
-          <el-submenu index="2-1" v-show="rightCode.userRight">
+          <el-submenu index="2-1" v-show="isUser">
             <template slot="title">
               作业管理
             </template>
@@ -34,17 +34,17 @@
             <el-menu-item index="SubmitHomework">提交作业</el-menu-item>
             <el-menu-item index="ModifyHomework">修改作业</el-menu-item>
           </el-submenu>
-          <el-submenu index="2-2" v-show="rightCode.userRight">
+          <el-submenu index="2-2" v-show="isUser">
             <template slot="title">
               消息通知管理
             </template>
-            <el-menu-item index="UnReadNotification" v-show="rightCode.userRight">查看所有未读消息</el-menu-item>
-            <el-menu-item index="NotificationView" v-show="rightCode.userRight">查看所有通知</el-menu-item>
-            <el-menu-item index="UnReadStudent" v-show="rightCode.monitorRight">查看某条消息未读的学生</el-menu-item>
-            <el-menu-item index="UnReadHomeworkStudent" v-show="rightCode.studyMemberRight">查看未读作业通知的学生</el-menu-item>
+            <el-menu-item index="UnReadNotification" v-show="isUser">查看所有未读消息</el-menu-item>
+            <el-menu-item index="NotificationView" v-show="isUser">查看所有通知</el-menu-item>
+            <el-menu-item index="UnReadStudent" v-show="isMonitor">查看某条消息未读的学生</el-menu-item>
+            <el-menu-item index="UnReadHomeworkStudent" v-show="isStudyMember">查看未读作业通知的学生</el-menu-item>
           </el-submenu>
           <!-- 班级管理(班长权限可看) -->
-          <el-submenu index="2-3" v-show="rightCode.monitorRight">
+          <el-submenu index="2-3" v-show="isMonitor">
             <template slot="title">
               班级管理
             </template>
@@ -55,7 +55,7 @@
             <el-menu-item index="PublishNotification">发布班级通知</el-menu-item>
           </el-submenu>
           <!-- 班级作业管理(学习委员权限可看) -->
-          <el-submenu index="2-4" v-show="rightCode.studyMemberRight">
+          <el-submenu index="2-4" v-show="isStudyMember">
             <template slot="title">
               班级作业管理
             </template>
@@ -77,14 +77,32 @@
 <script>
 export default {
   name: "AsideView",
+  props:{
+    isUser:{
+      type:Boolean,
+      default:false
+    },
+    isMonitor:{
+      type:Boolean,
+      default:false
+    },
+    isStudyMember:{
+      type:Boolean,
+      default:false,
+    },
+    isAdmin:{
+      type:Boolean,
+      default:false,
+    }
+  },
   data() {
     return {
-      rightCode: {   //权限
-        userRight: true, //用户权限
-        monitorRight: true,  //班长权限
-        studyMemberRight: true //学习委员权限
-
-      },
+      // rightCode: {   //权限
+      //   userRight: true, //用户权限
+      //   monitorRight: true,  //班长权限
+      //   studyMemberRight: true //学习委员权限
+      //
+      // },
 
     }
   }

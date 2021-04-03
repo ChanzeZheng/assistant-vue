@@ -1,33 +1,26 @@
 <template>
-  <!--  <div>-->
-  <!--    <el-card class="el-col-6 el-col-push-9" header="用户登录">-->
-  <!--      &lt;!&ndash;    <h3>用户登录</h3>&ndash;&gt;-->
-  <!--      <el-form status-icon :model="loginForm" :rules="rules" ref="loginForm" label-width="100px">-->
-  <!--        <el-form-item label="学号" prop="username">-->
-  <!--          <el-input placeholder="请输入学号..." v-model="loginForm.username" prefix-icon="el-icon-user"></el-input>-->
-  <!--        </el-form-item>-->
-  <!--        <el-form-item label="密码" prop="password">-->
-  <!--          <el-input placeholder="请输入密码..." v-model="loginForm.password" prefix-icon="el-icon-lock"-->
-  <!--                    type="password"></el-input>-->
-  <!--        </el-form-item>-->
-  <!--        <el-form-item>-->
-  <!--          <el-button class="el-col-push-6 el-col-8" type="primary" @click="submitForm('loginForm')">登陆</el-button>-->
-  <!--        </el-form-item>-->
-  <!--      </el-form>-->
-  <!--    </el-card>-->
-  <!--  </div>-->
-  <div class="login-link">
-    <router-link to="/userLogin">用户登录</router-link>
-    |
-    <router-link to="/adminLogin">管理员登陆</router-link>
-    <router-view></router-view>
+  <div class="my-login-form">
+    <el-card class="el-col-6 el-col-push-9" header="用户登录">
+      <!--    <h3>用户登录</h3>-->
+      <el-form status-icon :model="loginForm" :rules="rules" ref="loginForm" label-width="100px">
+        <el-form-item label="学号" prop="username">
+          <el-input placeholder="请输入学号..." v-model="loginForm.username" prefix-icon="el-icon-user"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-input placeholder="请输入密码..." v-model="loginForm.password" prefix-icon="el-icon-lock"
+                    type="password"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button class="el-col-push-6 el-col-8" type="primary" @click="submitForm('loginForm')">登陆</el-button>
+        </el-form-item>
+      </el-form>
+    </el-card>
   </div>
-
 </template>
 
 <script>
 export default {
-  name: "Login",
+  name: "UserLogin",
   data() {
     return {
       loginForm: {
@@ -70,9 +63,9 @@ export default {
       this.axios.post('/api/user/login', {username: username, password: password})
           .then((response) => {
             var resData = response.data
-            if (resData.status == "error") {
+            if(resData.status=="error"){
               alert(resData.message);
-            } else {
+            }else{
               alert(resData.message);
               this.$router.push('/home')
             }
@@ -82,22 +75,9 @@ export default {
           })
     }
   }
-
 }
 </script>
 
 <style scoped>
-.my-login-form {
-  margin-top: 100px;
-}
-
-.login-link a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.login-link a.router-link-exact-active {
-  color: #42b983;
-}
 
 </style>

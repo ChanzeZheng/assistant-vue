@@ -107,7 +107,19 @@ const routes = [
     {
         path: '/',
         name: 'Login',
-        component: ()=>import('../views/Login')
+        component: ()=>import('../views/Login'),
+        children: [
+            {
+                path: '/userLogin',
+                name: '用户登陆',
+                component:()=>import('../views/UserLogin')
+            },
+            {
+                path: '/adminLogin',
+                name:'管理员登陆',
+                component:()=>import('../views/AdminLogin')
+            }
+        ]
     },
 
 ]
