@@ -27,6 +27,7 @@ export default {
         positionName: '',
       },
       unReadNotification: {
+        count: 0,
         List: [],
         message: ''
       },
