@@ -46,7 +46,7 @@ export default {
             if (statusCode == 200) {
               this.unReadNotification.List = notificationList;
               this.unReadNotification.message = message;
-              this.$store.dispatch('setUnReadCountAction',notificationList.size());
+              this.$store.dispatch('setUnReadCountAction',notificationList.length);
             } else {
               this.unReadNotification.message = message;
             }

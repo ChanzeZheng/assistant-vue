@@ -204,7 +204,25 @@ const store = new Vuex.Store({
         },
         user:{
             username:window.localStorage.getItem('user'||'[]')==null?'':JSON.parse(window.localStorage.getItem('user'||'[]')).username
-        }
+        },
+        //班级职位的对应json
+        position:[
+            //普通学生
+            {
+                positionID:0,
+                positionName:'学生',
+            },
+            //班长
+            {
+                positionID:1,
+                positionName:'班长',
+            },
+            //学委
+            {
+                positionID:2,
+                positionName:'学习委员',
+            },
+        ]
 
     },
     getters: {
@@ -226,6 +244,9 @@ const store = new Vuex.Store({
         },
         getUnReadCount(state) {
             return state.currentUser.unReadNotificationCount
+        },
+        positionGetter(state){
+            return state.position;
         }
     },
     mutations: {
