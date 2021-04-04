@@ -6,11 +6,11 @@
     个人中心<i class="el-icon-caret-bottom el-icon--right"></i>
   </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="a">
+          <el-dropdown-item command="/UnReadNotification">
             未读消息
-            <el-badge class="" :value="unReadCount" :max="99"></el-badge>
+            <el-badge class="" :value="getUnreadCount" :max="99"></el-badge>
           </el-dropdown-item>
-          <el-dropdown-item divided>
+          <el-dropdown-item divided command="logout">
             退出系统
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -30,7 +30,29 @@ export default {
   },
   methods: {
     handleCommand(command) {
-      this.$message('点击了按钮' + command)
+      if(command=='/UnReadNotification'){
+        this.$router.push(command)
+      }
+      else if(command=='logout'){
+        this.axios.post('/api/common/logout')
+        .then((response)=>{
+          const responseData = response.data;
+          const statusCode = responseData.statusCode;
+          const message = responseData.message;
+          if (statusCode == 200) {
+            alert(message);
+            this.$router.push('/')
+          }else if(statusCode==408){
+            alert(message);
+            this.$router.push('/')
+          }
+        })
+      }
+    }
+  },
+  computed:{
+    getUnreadCount(){
+      return this.$store.getters.getUnReadCount
     }
   }
 

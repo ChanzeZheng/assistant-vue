@@ -196,6 +196,12 @@ const store = new Vuex.Store({
                 ]
             }
         ],
+        //当前用户信息
+        currentUser:{
+            accountNumber: '',
+            accountName:'',
+            unReadNotificationCount:0,
+        }
 
     },
     getters: {
@@ -215,6 +221,9 @@ const store = new Vuex.Store({
         getDepartmentLevel(state) {
             return state.departmentLevel
         },
+        getUnReadCount(state) {
+            return state.currentUser.unReadNotificationCount
+        }
     },
     mutations: {
         rightUser(state) {
@@ -236,6 +245,9 @@ const store = new Vuex.Store({
         rightAllRightCode(state, rightCode) {
             //直接授权整个权限
             state.rightCode = rightCode
+        },
+        setUnReadNotificationCount(state, count) {
+            state.currentUser.unReadNotificationCount=count;
         }
     },
     //全局改变值
@@ -254,6 +266,9 @@ const store = new Vuex.Store({
         },
         addRightCode(context, rightCode) {
             context.commit('rightAllRightCode', rightCode)
+        },
+        setUnReadCountAction(context, count) {
+            context.commit('setUnReadNotificationCount', count);
         }
     }
 

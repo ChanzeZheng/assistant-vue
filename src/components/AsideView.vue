@@ -18,6 +18,15 @@
           <el-menu-item index="ChangePassword">修改密码</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+      <el-submenu index="3" v-show="isAdmin">
+        <template slot="title">
+          <i class="el-icon-user-solid"></i>
+          <span>管理员信息管理</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="ChangeAdminPassword">修改管理员密码</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
 
       <el-submenu index="2">
         <template slot="title">

@@ -4,14 +4,13 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 
-
 const routes = [
     {
         path: '/home',
         name: 'Home',
         //懒加载
         component: () => import('../views/Home'),
-        children:[
+        children: [
             //用户信息管理模块
             {
                 path: '/PersonInfo',
@@ -20,110 +19,115 @@ const routes = [
             },
             {
                 path: '/ChangePassword',
-                name:'修改密码',
-                component:()=>import('../views/User/ChangePassword')
+                name: '修改密码',
+                component: () => import('../views/User/ChangePassword')
             },
             //用户作业模块
             {
-                path:'/HomeworkView',
-                name:'查看作业',
-                component:()=>import('../views/Homework/HomeworkView')
+                path: '/HomeworkView',
+                name: '查看作业',
+                component: () => import('../views/Homework/HomeworkView')
             },
             {
                 path: '/SubmitHomework',
-                name:'提交作业',
-                component:()=>import('../views/Homework/SubmitHomework')
+                name: '提交作业',
+                component: () => import('../views/Homework/SubmitHomework')
             },
             {
                 path: '/ModifyHomework',
-                name:'修改作业内容',
-                component:()=>import('../views/Homework/ModifyHomework')
+                name: '修改作业内容',
+                component: () => import('../views/Homework/ModifyHomework')
             },
             //消息管理模块
             {
                 path: '/NotificationView',
-                name:'查看所有消息',
-                component:()=>import('../views/Notification/AllNotification')
+                name: '查看所有消息',
+                component: () => import('../views/Notification/AllNotification')
             },
             {
-                path:'/UnReadNotification',
-                name:'查看未读消息',
-                component:()=>import('../views/Notification/UnReadNotification')
+                path: '/UnReadNotification',
+                name: '查看未读消息',
+                component: () => import('../views/Notification/UnReadNotification')
             },
             {
-                path:'/UnReadHomeworkStudent',
+                path: '/UnReadHomeworkStudent',
                 name: '查看未读某条作业通知的学生',
-                component:()=>import('../views/Notification/UnReadHomeworkStudent')
+                component: () => import('../views/Notification/UnReadHomeworkStudent')
             },
             {
                 path: '/UnReadStudent',
                 name: '某条通知未读的学生',
-                component:()=>import('../views/Notification/UnReadStudent')
+                component: () => import('../views/Notification/UnReadStudent')
             },
             // 班级管理模块
             {
-                path:'/ClassInfo',
-                name:'班级信息',
-                component:()=>import('../views/ClassManage/ClassInfo')
+                path: '/ClassInfo',
+                name: '班级信息',
+                component: () => import('../views/ClassManage/ClassInfo')
             },
             {
                 path: '/FirstLoginStudent',
-                name:'查看还未登陆过系统的学生',
-                component:()=>import('../views/ClassManage/FirstLoginStudent')
+                name: '查看还未登陆过系统的学生',
+                component: () => import('../views/ClassManage/FirstLoginStudent')
             },
             {
-                path:'/PublishNotification',
+                path: '/PublishNotification',
                 name: '发布通知',
-                component:()=>import('../views/ClassManage/PublishNotification')
+                component: () => import('../views/ClassManage/PublishNotification')
             },
             {
-                path:'/ResetStudentPassword',
-                name:'重置学生密码',
-                component:()=>import('../views/ClassManage/ResetStudentPassword')
+                path: '/ResetStudentPassword',
+                name: '重置学生密码',
+                component: () => import('../views/ClassManage/ResetStudentPassword')
             },
             // 班级作业管理模块
             {
                 path: '/PublishHomework',
                 name: '发布新作业',
-                component:()=>import('../views/HomeworkManage/PublishHomework')
+                component: () => import('../views/HomeworkManage/PublishHomework')
             },
             {
-                path:'/SubmitSituation',
-                name:'查看作业提交情况',
-                component:()=>import('../views/HomeworkManage/SubmitSituation')
+                path: '/SubmitSituation',
+                name: '查看作业提交情况',
+                component: () => import('../views/HomeworkManage/SubmitSituation')
             },
             {
                 path: '/ZipHomework',
-                name:'打包下载班级作业',
-                component:()=>import('../views/HomeworkManage/ZipHomework')
+                name: '打包下载班级作业',
+                component: () => import('../views/HomeworkManage/ZipHomework')
             },
             {
                 path: '/SystemSetting',
-                name:'系统设置',
-                component:()=>import('../views/User/SystemSetting')
+                name: '系统设置',
+                component: () => import('../views/User/SystemSetting')
             },
             //管理员系统管理模块
             {
-                path:'/GlobalClassInfo',
-                name:'全局班级信息',
-                component:()=>import('../views/Admin/GlobalClassInfo')
+                path: '/GlobalClassInfo',
+                name: '全局班级信息',
+                component: () => import('../views/Admin/GlobalClassInfo')
+            },
+            {
+                path: '/ChangeAdminPassword',
+                name: '管理员修改密码',
+                component: () => import('../views/Admin/ChangeAdminPassword')
             }
         ]
     },
     {
         path: '/',
         name: 'Login',
-        component: ()=>import('../views/Login'),
+        component: () => import('../views/Login'),
         children: [
             {
                 path: '/userLogin',
                 name: '用户登陆',
-                component:()=>import('../views/UserLogin')
+                component: () => import('../views/UserLogin')
             },
             {
                 path: '/adminLogin',
-                name:'管理员登陆',
-                component:()=>import('../views/AdminLogin')
+                name: '管理员登陆',
+                component: () => import('../views/AdminLogin')
             }
         ]
     },
@@ -132,7 +136,7 @@ const routes = [
 
 const router = new VueRouter({
     routes,
-    mode:'history'
+    mode: 'history'
 })
 
 export default router
