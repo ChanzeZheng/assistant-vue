@@ -63,7 +63,9 @@ export default {
             var code = responseData.statusCode
             var message = responseData.message
             if (code == 200) {
-              alert(message)
+              alert(message);
+              this.$store.commit('login',this.adminLoginForm)
+              // var path = this.$router.query.redirect    //获取校验之前的访问页面
               this.$router.push({
                 name: 'Home',
                 // params: {

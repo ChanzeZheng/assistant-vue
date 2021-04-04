@@ -29,6 +29,22 @@ axios.defaults.headers.post['Content-Type']='application/json;charset=UTF-8';
 axios.defaults.baseURL = 'http://localhost:8080';
 axios.defaults.withCredentials=true
 
+//判断页面是否需要登陆
+router.beforeEach((to,from,next)=>{
+  if(to.meta.requireAuth){  //该页面需要身份验证
+    if (store.state.user.username) {
+      next()
+    }else{
+      next({
+        path:'/',
+        query:{redirect:to.fullPath}  //存储档期那访问的页面路径，用于登陆后跳转
+      })
+    }
+  }else{
+    next()
+  }
+})
+
 new Vue({
   router,
   render: h => h(App),

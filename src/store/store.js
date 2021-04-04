@@ -201,6 +201,9 @@ const store = new Vuex.Store({
             accountNumber: '',
             accountName:'',
             unReadNotificationCount:0,
+        },
+        user:{
+            username:window.localStorage.getItem('user'||'[]')==null?'':JSON.parse(window.localStorage.getItem('user'||'[]')).username
         }
 
     },
@@ -248,6 +251,10 @@ const store = new Vuex.Store({
         },
         setUnReadNotificationCount(state, count) {
             state.currentUser.unReadNotificationCount=count;
+        },
+        login(state,user){
+            state.user = user
+            window.localStorage.setItem('user',JSON.stringify(user))
         }
     },
     //全局改变值
