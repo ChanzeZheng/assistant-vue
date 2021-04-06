@@ -24,34 +24,31 @@
 export default {
   name: "Header",
   data() {
-    return {
-      unReadCount: 100
-    }
+    return {}
   },
   methods: {
     handleCommand(command) {
-      if(command=='/UnReadNotification'){
+      if (command == '/UnReadNotification') {
         this.$router.push(command)
-      }
-      else if(command=='logout'){
+      } else if (command == 'logout') {
         this.axios.post('/api/common/logout')
-        .then((response)=>{
-          const responseData = response.data;
-          const statusCode = responseData.statusCode;
-          const message = responseData.message;
-          if (statusCode == 200) {
-            alert(message);
-            this.$router.push('/')
-          }else if(statusCode==408){
-            alert(message);
-            this.$router.push('/')
-          }
-        })
+            .then((response) => {
+              const responseData = response.data;
+              const statusCode = responseData.statusCode;
+              const message = responseData.message;
+              if (statusCode == 200) {
+                alert(message);
+                this.$router.push('/')
+              } else if (statusCode == 408) {
+                alert(message);
+                this.$router.push('/')
+              }
+            })
       }
     }
   },
-  computed:{
-    getUnreadCount(){
+  computed: {
+    getUnreadCount() {
       return this.$store.getters.getUnReadCount
     }
   }

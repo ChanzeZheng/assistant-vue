@@ -201,6 +201,7 @@ const store = new Vuex.Store({
             accountNumber: '',
             accountName:'',
             unReadNotificationCount:0,
+
         },
         user:{
             username:window.localStorage.getItem('user'||'[]')==null?'':JSON.parse(window.localStorage.getItem('user'||'[]')).username

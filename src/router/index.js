@@ -89,7 +89,7 @@ const routes = [
             // 班级管理模块
             {
                 path: '/ClassInfo',
-                name: '班级信息',
+                name: '查看班级信息',
                 component: () => import('../views/ClassManage/ClassInfo'),
                 meta:{
                     requireAuth:true        //该页面需要登陆
@@ -99,6 +99,14 @@ const routes = [
                 path: '/FirstLoginStudent',
                 name: '查看还未登陆过系统的学生',
                 component: () => import('../views/ClassManage/FirstLoginStudent'),
+                meta:{
+                    requireAuth:true        //该页面需要登陆
+                }
+            },
+            {
+                path: '/ClassInfoMaintain',
+                name:'班级信息维护',
+                component:()=>import('../views/ClassManage/ClassInfoMaintain'),
                 meta:{
                     requireAuth:true        //该页面需要登陆
                 }

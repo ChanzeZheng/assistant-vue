@@ -57,7 +57,8 @@
           <template slot="title">
             班级管理
           </template>
-          <el-menu-item index="ClassInfo">班级信息</el-menu-item>
+          <el-menu-item index="ClassInfo">查看班级信息</el-menu-item>
+          <el-menu-item index="ClassInfoMaintain">班级信息维护</el-menu-item>
           <!--            <el-menu-item index="2-3-2">导出班级信息表</el-menu-item>-->
           <el-menu-item index="ResetStudentPassword">重置班级成员密码</el-menu-item>
           <el-menu-item index="FirstLoginStudent">查看尚未修改密码的成员</el-menu-item>
@@ -69,7 +70,7 @@
             班级作业管理
           </template>
           <el-menu-item index="SubmitSituation">查看作业提交情况</el-menu-item>
-          <el-menu-item index="PublishHomework">发布新的作业</el-menu-item>
+          <el-menu-item index="PublishHomework">发布作业通知</el-menu-item>
           <el-menu-item index="ZipHomework">打包导出班级作业</el-menu-item>
         </el-submenu>
         <el-submenu index="2-5" v-show="isAdmin">
